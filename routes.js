@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 
-import { createPost, getPosts, getPost, deletePost, updatePost } from './controller.js';
+import { createPost, getPosts, getPost, deletePost, updatePost } from './controllers.js';
 
 const router = express.Router();
 dotenv.config();
