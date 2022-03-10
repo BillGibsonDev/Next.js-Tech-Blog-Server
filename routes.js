@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 
-import { createPost, getPosts, getPost, deletePost, updatePost } from './controllers.js';
+import { createPost, getPosts, getPost, deletePost, editPost } from './controllers.js';
 
 const router = express.Router();
 dotenv.config();
@@ -11,7 +11,7 @@ router.get(`/${process.env.NODE_ENV_GET_POSTS_URL}`, getPosts);
 router.get(`/${process.env.NODE_ENV_GET_POST_URL}/:postId`, getPost);
 
 // update
-router.post(`/${process.env.NODE_ENV_UPDATE_POST_URL}/:postId`, updatePost);
+router.post(`/${process.env.NODE_ENV_UPDATE_POST_URL}/:postId`, editPost);
 
 // create
 router.post(`/${process.env.NODE_ENV_ADD_POST_URL}`, createPost);
