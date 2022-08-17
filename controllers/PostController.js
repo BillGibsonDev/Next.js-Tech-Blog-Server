@@ -1,14 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import { PostModel } from "./PostModel.js";
+import { PostModel } from "../models/Post.js";
 
 const router = express.Router();
 
 export const createPost = async (req, res) => {
 
-const { author, title, linkTitle, date, thumbnail, sections, tag, type, intro } = req.body
+const { author, postTitle, linkTitle, postDate, thumbnail, postIntro, sections, conclusionTitle, conclusion, tag, authorUsername, } = req.body
     
-    const newPost = new PostModel({ author, title, linkTitle, date, thumbnail, sections, tag, type, intro })
+    const newPost = new PostModel({ author, authorUsername, postTitle, linkTitle, postDate, thumbnail, postIntro, sections, conclusionTitle, conclusion, tag })
     try {
         await newPost.save();
 
@@ -41,19 +41,20 @@ export const getPost = async (req, res) => {
 
 export const editPost = async (req, res) => {
     const { postId } = req.params;
-    const { title, linkTitle, date, thumbnail, sections, tag, type, intro } = req.body
+    const { postTitle, linkTitle, postDate, thumbnail, postIntro, sections, conclusionTitle, conclusion, tag } = req.body
     
     try {
         await PostModel.findOneAndUpdate({ "_id": postId },
         {
             $set:{
-                title: title,
+                postTitle: postTitle,
                 linkTitle: linkTitle,
-                date: date,
+                postDate: postDate,
                 thumbnail: thumbnail,
+                postIntro: postIntro,
+                conclusionTitle: conclusionTitle,
+                conclusion: conclusion,
                 tag: tag,
-                type: type,
-                intro: intro,
                 sections: sections,
             }
         },
