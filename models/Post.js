@@ -19,31 +19,20 @@ const PostSchema = new mongoose.Schema({
     thumbnail: {
         type: String,
     },
-    //
-    //
     sections:[{
         title: String,
         paragraph: String,
         image: String,
         link: String,
     }],
-    //
     comments: [{ 
         comment: String,
         date: String,
         author: String, 
     }],
-    //
     likes: [{
         username: String
     }],
-    //
-    conclusion: {
-        type: String,
-    },
-    conclusionTitle: {
-        type: String,
-    },
     tag: {
         type: String,
     },

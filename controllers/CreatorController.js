@@ -6,8 +6,6 @@ const router = express.Router();
 
 export const createCreator = async (req, res) => {
     const { avatar, authorUsername, creator, twitter, instagram, linkedin, youtube, other, bio, location } = req.body;
-
-
     try {
         CreatorModel.create({
             creator: creator,
@@ -29,10 +27,8 @@ export const createCreator = async (req, res) => {
 
 export const getCreator = async (req, res) => {
     const { authorUsername } = req.params;
-
     try {
         const author = await CreatorModel.find({"authorUsername": authorUsername});
-        
         res.status(200).json(author);
     } catch (error) {
         res.status(404).json({ error });
@@ -43,7 +39,6 @@ export const getCreator = async (req, res) => {
 export const editCreator = async (req, res) => {
     const { creatorId } = req.params;
     const { creator, twitter, avatar, instagram, linkedin, youtube, other, bio, authorUsername } = req.body;
-
     try {
         CreatorModel.findOneAndUpdate({creatorId}, {
             creator: creator,
