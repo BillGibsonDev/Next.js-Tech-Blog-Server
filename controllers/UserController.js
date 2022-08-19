@@ -123,23 +123,3 @@ export const createUser = async (req, res) => {
       }
     });
   };
-
-  export const deleteAccount = async (req, res) =>{
-    const { username, password } = req.body;
-
-    const user = await UserModel.findOne({username: username });
-  
-    if (!user) res.status(400).json({ error: "User Doesn't Exist" });
-  
-    const userPassword = user.password;
-    bcrypt.compare(password, userPassword).then((match) => {
-      if (!match) {
-        res
-          .status(400)
-          .json({ error: "Wrong Username or Password!" });
-      } else {
-        UserModel.findOneAndDelete({username: username });
-        res.json("Account Deleted")
-      }
-    });
-  };

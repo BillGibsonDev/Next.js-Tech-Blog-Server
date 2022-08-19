@@ -25,14 +25,6 @@ const PostSchema = new mongoose.Schema({
         image: String,
         link: String,
     }],
-    comments: [{ 
-        comment: String,
-        date: String,
-        author: String, 
-    }],
-    likes: [{
-        username: String
-    }],
     tag: {
         type: String,
     },
