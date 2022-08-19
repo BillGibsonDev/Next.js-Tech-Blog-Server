@@ -5,7 +5,7 @@ import { CreatorModel } from "../models/Creator.js"
 const router = express.Router();
 
 export const createCreator = async (req, res) => {
-    const { avatar, authorUsername, creator, twitter, instagram, linkedin, youtube, other, bio, location } = req.body;
+    const { avatar, authorUsername, creator, twitter, github, instagram, linkedin, youtube, other, bio, location } = req.body;
     try {
         CreatorModel.create({
             creator: creator,
@@ -16,6 +16,7 @@ export const createCreator = async (req, res) => {
             linkedin: linkedin,
             instagram: instagram,
             youtube: youtube,
+            github: github,
             other: other,
             bio: bio,
         })   
@@ -35,10 +36,9 @@ export const getCreator = async (req, res) => {
     }
 };
 
-
 export const editCreator = async (req, res) => {
     const { creatorId } = req.params;
-    const { creator, twitter, avatar, instagram, linkedin, youtube, other, bio, authorUsername } = req.body;
+    const { creator, twitter, avatar, instagram, github, linkedin, youtube, other, bio, authorUsername } = req.body;
     try {
         CreatorModel.findOneAndUpdate({creatorId}, {
             creator: creator,
@@ -48,6 +48,7 @@ export const editCreator = async (req, res) => {
             linkedin: linkedin,
             instagram: instagram,
             youtube: youtube,
+            github: github,
             other: other,
             bio: bio,
         },

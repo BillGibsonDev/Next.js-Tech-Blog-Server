@@ -33,6 +33,9 @@ const CreatorSchema = new mongoose.Schema({
     youtube: {
         type: String,
     },
+    github: {
+        type: String,
+    },
     other: {
         type: String,
     },
