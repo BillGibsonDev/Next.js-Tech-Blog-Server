@@ -40,7 +40,7 @@ export const editCreator = async (req, res) => {
     const { creatorId } = req.params;
     const { creator, twitter, avatar, location, instagram, github, linkedin, youtube, other, bio, authorUsername } = req.body;
     try {
-        CreatorModel.findOneAndUpdate({creatorId}, {
+        CreatorModel.findOneAndUpdate({ "_id": creatorId}, {
             creator: creator,
             authorUsername: authorUsername,
             location: location,
