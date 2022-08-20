@@ -40,7 +40,7 @@ export const editCreator = async (req, res) => {
     const { creatorId } = req.params;
     const { creator, twitter, avatar, location, instagram, github, linkedin, youtube, other, bio, authorUsername } = req.body;
     try {
-        CreatorModel.findOneAndUpdate({ "_id": creatorId}, 
+        await CreatorModel.findOneAndUpdate({ "_id": creatorId}, 
         {
             $set: {
                 creator: creator,
@@ -55,8 +55,7 @@ export const editCreator = async (req, res) => {
                 other: other,
                 bio: bio,
             }
-        },
-        {new: true}
+        }
     );
         res.status(201).json("Creator Updated!");
     } catch(err) {
