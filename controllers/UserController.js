@@ -97,8 +97,7 @@ export const createUser = async (req, res) => {
     const buf1 = role;
     const buf2 = process.env.NODE_ENV_ADMIN_SECRET;
     const buf3 = process.env.NODE_ENV_CREATOR_SECRET;
-    const buf4 = process.env.NODE_ENV_USER_SECRET;
-    if( buf1 === buf2 || buf3 || buf4){
+    if( buf1 === buf2 || buf3 ){
       res.json("Role Confirmed");
     } else {
       res.json("Does not match")
