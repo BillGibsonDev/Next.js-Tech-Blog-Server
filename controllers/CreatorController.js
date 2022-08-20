@@ -38,11 +38,12 @@ export const getCreator = async (req, res) => {
 
 export const editCreator = async (req, res) => {
     const { creatorId } = req.params;
-    const { creator, twitter, avatar, instagram, github, linkedin, youtube, other, bio, authorUsername } = req.body;
+    const { creator, twitter, avatar, location, instagram, github, linkedin, youtube, other, bio, authorUsername } = req.body;
     try {
         CreatorModel.findOneAndUpdate({creatorId}, {
             creator: creator,
             authorUsername: authorUsername,
+            location: location,
             avatar: avatar,
             twitter: twitter,
             linkedin: linkedin,
@@ -53,7 +54,7 @@ export const editCreator = async (req, res) => {
             bio: bio,
         },
         { new: true }),
-        res.json('Creator Edited!')
+        res.json('Creator Updated!')
     } catch(err) {
         res.status(400).json({ error: err });
     }
