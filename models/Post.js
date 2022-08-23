@@ -13,18 +13,12 @@ const PostSchema = new mongoose.Schema({
     postDate: {
         type: String,
     },
-    postIntro: {
+    content: {
         type: String,
     },
     thumbnail: {
         type: String,
     },
-    sections:[{
-        title: String,
-        paragraph: String,
-        image: String,
-        link: String,
-    }],
     tag: {
         type: String,
     },
