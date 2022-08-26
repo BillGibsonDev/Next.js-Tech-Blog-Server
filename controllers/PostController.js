@@ -10,7 +10,7 @@ const { author, postTitle, linkTitle, postDate, thumbnail, content, tag, authorU
     const newPost = new PostModel({ author, authorUsername, postTitle, linkTitle, postDate, thumbnail, content, tag })
     try {
         await newPost.save();
-        res.status(201).json("Post Created");
+        res.status(200).json("Post Created");
     } catch (error) {
         res.status(409).json({ message: error.message });
     }   
@@ -52,7 +52,7 @@ export const editPost = async (req, res) => {
         },
         {new: true}
     );
-        res.status(201).json("Post Updated");
+        res.status(200).json("Post Updated");
     } catch (error) {
         res.status(409).json({ message: error.message });
     }  
