@@ -1,7 +1,6 @@
 import pkg from 'jsonwebtoken';
 const { sign, verify } = pkg;
 
-
 export const createTokens = (user) => {
   const accessToken = sign(
     { username: user.username, id: user.id },
