@@ -2,6 +2,7 @@
     "type": "module",
     "dependencies": {
         "bcrypt": "^5.0.1",
+        "cli": "^1.0.1",
         "cookie-parser": "^1.4.6",
         "cors": "^2.8.5",
         "dotenv": "^16.0.1",
@@ -10,7 +11,8 @@
         "heroku-cli": "^7.0.9",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^6.5.2",
-        "nodemon": "^2.0.19"
+        "nodemon": "^2.0.19",
+        "webpack": "^5.74.0"
     },
     "scripts": {
         "build": "webpack",
