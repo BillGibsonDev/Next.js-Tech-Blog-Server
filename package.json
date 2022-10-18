@@ -13,7 +13,7 @@
         "nodemon": "^2.0.19"
     },
     "scripts": {
-        "build": "npm build",
+        "build": "npm run build",
         "watch": "webpack --watch",
         "start": "node index.js",
         "devstart": "nodemon index.js",
